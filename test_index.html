@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test HTML Page</title>
+    <script>
+        function runTests() {
+            // Test 1: Check if the page has a title
+            const hasTitle = document.title && document.title.length > 0;
+            
+            // Test 2: Check if "HELLO WORLD" is present in all caps
+            const pageContent = document.body.innerText;
+            const hasHelloWorld = pageContent.includes("HELLO WORLD");
+            
+            // Display test results
+            const resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = `
+                <p>Test 1 - Has title: ${hasTitle ? "PASS" : "FAIL"}</p>
+                <p>Test 2 - Contains "HELLO WORLD" in all caps: ${hasHelloWorld ? "PASS" : "FAIL"}</p>
+            `;
+        }
+    </script>
+</head>
+<body onload="runTests()">
+    <h1>HTML Page Tests</h1>
+    <div id="results"></div>
+    <p>Open this file in a browser to run tests on index.html</p>
+    <p>Note: This is a simple client-side test. For proper testing, use a testing framework like Jest or Cypress.</p>
+</body>
+</html>
