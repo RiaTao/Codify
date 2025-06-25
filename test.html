@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Test</title>
+    <style>
+        .pass { color: green; }
+        .fail { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Test Results</h1>
+    <div id="results"></div>
+
+    <script>
+        // Simple test function
+        function runTest() {
+            const resultsDiv = document.getElementById('results');
+            
+            // Fetch the index.html file
+            fetch('index.html')
+                .then(response => response.text())
+                .then(html => {
+                    // Check if the HTML contains "HELLO WORLD"
+                    const containsHelloWorld = html.includes('HELLO WORLD');
+                    
+                    if (containsHelloWorld) {
+                        resultsDiv.innerHTML += '<p class="pass">✓ PASS: index.html contains "HELLO WORLD" in all caps</p>';
+                    } else {
+                        resultsDiv.innerHTML += '<p class="fail">✗ FAIL: index.html does not contain "HELLO WORLD" in all caps</p>';
+                    }
+                })
+                .catch(error => {
+                    resultsDiv.innerHTML += `<p class="fail">✗ ERROR: ${error.message}</p>`;
+                });
+        }
+
+        // Run the test when the page loads
+        window.onload = runTest;
+    </script>
+</body>
+</html>
