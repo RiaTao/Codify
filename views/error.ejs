@@ -1,0 +1,96 @@
+<div class="error-section">
+    <div class="error-content">
+        <div class="error-icon">
+            <% if (error.includes('not found') || error.includes('404')) { %>
+                🔍
+            <% } else { %>
+                ⚠️
+            <% } %>
+        </div>
+        
+        <h1 class="error-title">
+            <% if (error.includes('not found') || error.includes('404')) { %>
+                Page Not Found
+            <% } else { %>
+                Oops! Something went wrong
+            <% } %>
+        </h1>
+        
+        <p class="error-message"><%= error %></p>
+        
+        <div class="error-actions">
+            <a href="/" class="btn btn-primary">Go Home</a>
+            <button onclick="history.back()" class="btn btn-secondary">Go Back</button>
+        </div>
+        
+        <div class="error-help">
+            <h3>Need help?</h3>
+            <ul>
+                <li>Make sure you have configured your Google OAuth credentials</li>
+                <li>Check that your environment variables are set correctly</li>
+                <li>Verify that your callback URL matches your Google OAuth settings</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+.error-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 2rem;
+}
+
+.error-content {
+    text-align: center;
+    max-width: 600px;
+}
+
+.error-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.error-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.error-help {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.error-help h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.error-help ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.error-help li {
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+</style>
